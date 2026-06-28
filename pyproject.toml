@@ -1,0 +1,32 @@
+[project]
+name = "sqlalchemy-clone"
+version = "0.1.0"
+description = "Deep-copy a SQLAlchemy ORM instance and a chosen slice of its graph onto fresh primary keys, with automatic foreign-key remapping. Native SQLAlchemy 2.0+, cross-backend."
+readme = "README.md"
+authors = [
+    { name = "Samuel Williams", email = "samuel.williams@communities.gov.uk" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy>=2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.23,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ty>=0.0.55",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ty.environment]
+python-version = "3.12"
+
+[tool.ty.src]
+include = ["src", "tests"]
